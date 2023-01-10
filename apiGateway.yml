@@ -1,4 +1,4 @@
-apiVersion: gateway.networking.k8s.io/v1
+apiVersion: gateway.networking.k8s.io/v1beta1
 kind: Gateway
 metadata:
   name: fds-gateway
@@ -11,7 +11,7 @@ spec:
 ---
 
 kind: HTTPRoute
-apiVersion: networking.x-k8s.io/v1alpha1
+apiVersion: networking.x-k8s.io/v1beta1
 metadata:
   name: fds-route
 spec:
