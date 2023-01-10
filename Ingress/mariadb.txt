@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: mariadb-ingress
+  namespace: db
+  annotations:
+    cert-manager.io/cluster-issuer: lets-encrypt
+    kubernetes.io/ingress.class: public
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  tls:
+  - hosts:
+    - mariadb.fandomsucks.me
+    secretName: mariadb-ingress-tls
+  rules:
+  - host: mariadb.fandomsucks.me
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: mariadb
+            port:
+              number: 80
