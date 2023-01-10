@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: rabbitmq-ingress
+  namespace: rabbit
+  annotations:
+    cert-manager.io/cluster-issuer: lets-encrypt
+    kubernetes.io/ingress.class: public
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  tls:
+  - hosts:
+    - rabbitmq.fandomsucks.me
+    secretName: rabbitmq-ingress-tls
+  rules:
+  - host: rabbitmq.wildradar.me
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: rabbitmq
+            port:
+              number: 15672
