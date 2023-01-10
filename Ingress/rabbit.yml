@@ -13,7 +13,7 @@ spec:
     - rabbitmq.fandomsucks.me
     secretName: rabbitmq-ingress-tls
   rules:
-  - host: rabbitmq.wildradar.me
+  - host: fandomsucks.wildradar.me
     http:
       paths:
       - path: /
