@@ -4,8 +4,6 @@ metadata:
   name: rabbitmq-ingress
   namespace: rabbit
 spec:
-  tls:
-    secretName: rabbitmq-ingress-tls
   rules:
     http:
       paths:
