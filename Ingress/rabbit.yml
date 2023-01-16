@@ -5,11 +5,8 @@ metadata:
   namespace: rabbit
 spec:
   tls:
-  - hosts:
-    - rabbitmq.fandomsucks.me
     secretName: rabbitmq-ingress-tls
   rules:
-  - host: rabbitmq.fandomsucks.me
     http:
       paths:
       - path: /

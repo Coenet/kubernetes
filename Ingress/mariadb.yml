@@ -9,11 +9,8 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   tls:
-  - hosts:
-    - mariadb.fandomsucks.me
     secretName: mariadb-ingress-tls
   rules:
-  - host: mariadb.fandomsucks.me
     http:
       paths:
       - path: /
