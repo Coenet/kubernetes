@@ -3,13 +3,16 @@ kind: Ingress
 metadata:
   name: rabbitmq-ingress
   namespace: rabbit
+annotations:
+  kubernetes.io/ingress.class: public
+  nginx.ingress.kubernetes.io/rewrite-target: /$2
 spec:
   tls:
     secretName: rabbitmq-ingress-tls
   rules:
     http:
       paths:
-      - path: /
+      - path: /rabbit(/|$)(.*)
         pathType: Prefix
         backend:
           service:
