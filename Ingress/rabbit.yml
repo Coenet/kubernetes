@@ -7,10 +7,8 @@ annotations:
   kubernetes.io/ingress.class: public
   nginx.ingress.kubernetes.io/rewrite-target: /$2
 spec:
-  tls:
-    secretName: rabbitmq-ingress-tls
   rules:
-    http:
+  - http:
       paths:
       - path: /rabbit(/|$)(.*)
         pathType: Prefix
