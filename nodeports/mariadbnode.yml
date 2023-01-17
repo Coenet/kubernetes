@@ -31,7 +31,7 @@ spec:
     port: 3306
     protocol: TCP
     targetPort: mysql
-    nodePort: 33333
+    nodePort: 32222
   selector:
     app.kubernetes.io/instance: galera
     app.kubernetes.io/name: mariadb-galera
